@@ -15,6 +15,7 @@
 * Quartz
 * Postman
 # Database structure:
+```javascript
 *database manager
   table t_product(
   id varchar(50) not null comment 'product id',
@@ -59,6 +60,7 @@ table verification_order(
   create_at datetime comment 'create time',
   primary key (order_id)
 )
+```
 
   
 
