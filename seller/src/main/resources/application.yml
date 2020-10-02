@@ -1,0 +1,31 @@
+server:
+  context-path: /seller
+  port: 8082
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/seller?useUnicode=true&useSSL=false&characterEncoding=utf-8
+      username: root
+      password: rootroot
+    backup:
+      url: jdbc:mysql://localhost:3306/seller_backup?useUnicode=true&useSSL=false&characterEncoding=utf-8
+      username: root
+      password: rootroot
+  jpa:
+    show-sql: true
+  cache:
+    type: hazelcast
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    packages:
+      trust-all: true
+logging:
+  level:
+    com.googlecode.jsonrpc4j: debug
+rpc:
+  client:
+    url: http://localhost:8081/manager/
+    basePackage: com.nick.api
+swagger:
+  groupName: seller
+  basePackage: com.nick.seller.controller
