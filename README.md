@@ -71,6 +71,11 @@ table verification_order(
 | Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
 # Cache Design
+| Default Method                                               | Customized Method| url            |
+| ------------------------------------------------------------ | --------------------------------- |
+| If no parameter, take 0 as key                               | (#parameter#product.id)           | 
+| If single parameter, take the parameter as key               | (#parameter_index#parameter0.id)  |
+| If multi parameters, take the hashcode of parameters as key  |                                   |
 * product search  
 * @Cacheable  
 * CachePut
@@ -79,10 +84,6 @@ table verification_order(
 * condition  
 * key  
 * when the prodcut status changes, for example, from authorizating to published to sell, the cache memory of seller module will add this product. And vice versa.
-| Default Method                                               | Customized Method| url            |
-| ------------------------------------------------------------ | --------------------------------- |
-| If no parameter, take 0 as key                               | (#parameter#product.id)           | 
-| If single parameter, take the parameter as key               | (#parameter_index#parameter0.id)  |
-| If multi parameters, take the hashcode of parameters as key  |                                   |
+
 
 
