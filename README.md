@@ -71,6 +71,11 @@ table verification_order(
 | Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
 # Cache Design
+| Fucntion               | Restful API   | url             | JPA Repository           |
+| ---------------------- | ------------- |-----------------| ------------------------ |
+| Add product            | POST          | /pruducts       | JpaRepository            |
+| Search single product  | GET           | /pruducts/{id}  | JpaSpecificationExecutor |
+| Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 | Default Method                                               | Customized Method| url            |
 | ------------------------------------------------------------ | --------------------------------- |
 | If no parameter, take 0 as key                               | (#parameter#product.id)           | 
