@@ -76,6 +76,7 @@ table verification_order(
 value = cacheNames  
 condition  
 key  
+
 | Default Method                                               | Customized Method| url          |
 | ------------------------------------------------------------ | ------------------------------- |
 | If no parameter, take 0 as key                               | #parameter#product.id           | 
