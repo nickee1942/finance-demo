@@ -61,6 +61,10 @@ table verification_order(
   primary key (order_id)
 )
 ```
-
-  
+#module functionality
+| Fucntion               | Restful API   | url             | JPA Repository           |
+| ---------------------- | ------------- |-----------------| ------------------------ |
+| Add product            | POST          | /pruducts       | JpaRepository            |
+| Search single product  | GET           | /pruducts/{id}  | JpaSpecificationExecutor |
+| Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
