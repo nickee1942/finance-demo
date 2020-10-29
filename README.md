@@ -71,13 +71,8 @@ table verification_order(
 | Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
 # Cache Design
-* product search  
-* @Cacheable  
-* value = cacheNames  
-* condition  
-* key  
 | Default Method                                               | Customized Method| url          |
 | ------------------------------------------------------------ | ------------------------------- |
 | If no parameter, take 0 as key                               | #parameter#product.id           | 
 | If single parameter, take the parameter as key               | #parameter_index#parameter0.id  |
-| If multi parameters, take the hashcode of parameters as key  | -                               |
+| If multi parameters, take the hashcode of parameters as key  |                                 |
