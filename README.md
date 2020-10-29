@@ -15,7 +15,7 @@
 * Quartz
 * Postman
 # UML Workflow
-
+![alt text](https://github.com/nickee1942/finance-demo/blob/main/UML%20Diagram.jpeg)
 # Database structure:
 ```javascript
 *database manager
