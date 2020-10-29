@@ -14,7 +14,7 @@
 * RSA, TYK, HTTPS
 * Quartz
 * Postman
-# UML Workflow
+# UML Diagram
 ![alt text](https://github.com/nickee1942/finance-demo/blob/main/UML%20Diagram.jpeg)
 # Database structure:
 ```javascript
@@ -63,10 +63,21 @@ table verification_order(
   primary key (order_id)
 )
 ```
-# module functionality
+# REST Module Functionality
 | Fucntion               | Restful API   | url             | JPA Repository           |
 | ---------------------- | ------------- |-----------------| ------------------------ |
 | Add product            | POST          | /pruducts       | JpaRepository            |
 | Search single product  | GET           | /pruducts/{id}  | JpaSpecificationExecutor |
 | Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
+# Cache Design
+* product search
+* @Cacheable
+value = cacheNames
+condition
+key
+| Default Method                                               | Customized Method| url          |
+| ------------------------------------------------------------ | ------------------------------- |
+| If no parameter, take 0 as key                               | #parameter#product.id           | 
+| If single parameter, take the parameter as key               | #parameter_index#parameter0.id  |
+| If multi parameters, take the hashcode of parameters as key  | -                               |
