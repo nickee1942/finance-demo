@@ -71,6 +71,11 @@ table verification_order(
 | Search multi products  | GET           | /products       | JpaSpecificationExecutor |
 
 # Cache Design
+| Default Method                                               | Customized Method                 |
+| ------------------------------------------------------------ | --------------------------------- |
+| If no parameter, take 0 as key                               | (#parameter#product.id)           | 
+| If single parameter, take the parameter as key               | (#parameter_index#parameter0.id)  |
+| If multi parameters, take the hashcode of parameters as key  |                                   |
 * take product search in mem cache, as it is heavy duty search
 * when the prodcut status changes, for example, from authorizating to published to sell, the cache memory of seller module will add this product. And vice versa.
 * @Cacheable  
@@ -79,15 +84,11 @@ table verification_order(
 * value = cacheNames  
 * condition  
 * key  
-| Default Method                                               | Customized Method                 |
-| ------------------------------------------------------------ | --------------------------------- |
-| If no parameter, take 0 as key                               | (#parameter#product.id)           | 
-| If single parameter, take the parameter as key               | (#parameter_index#parameter0.id)  |
-| If multi parameters, take the hashcode of parameters as key  |                                   |
+
 # Message Passing
 * VirtualTopic
 * Workflow
-
+![alt text](https://github.com/nickee1942/finance-demo/blob/main/message.jpeg)
 
 
 
