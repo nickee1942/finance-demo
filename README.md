@@ -65,7 +65,7 @@ table verification_order(
 ```
 # Primary Datasouce And Backup Datasource
 * application.yml
-```
+```javascript
 spring:
 datasource:
   primary:
@@ -76,7 +76,7 @@ datasource:
     url: jdbc:mysql://localhost:3306/seller_backup?useUnicode=true&useSSL=false&characterEncoding=utf-8
     username: root
     password: xxx
-    ```
+```
 # REST Module Functionality
 | Fucntion               | Restful API   | url             | JPA Repository           |
 | ---------------------- | ------------- |-----------------| ------------------------ |
@@ -105,7 +105,7 @@ datasource:
 ![alt text](https://github.com/nickee1942/finance-demo/blob/main/message.jpeg)
 
 # JPA
-```
+```javascript
 @EnableJpaRepositories(basePackageClasses = OrderRepository.class,
             entityManagerFactoryRef = "primaryEntityManagerFactory",transactionManagerRef = "primaryTransactionManager")
 public class PrimaryConfiguration {
