@@ -63,6 +63,20 @@ table verification_order(
   primary key (order_id)
 )
 ```
+# Primary Datasouce And Backup Datasource
+* application.yml
+```
+spring:
+datasource:
+  primary:
+    url: jdbc:mysql://localhost:3306/seller?useUnicode=true&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: xxx
+  backup:
+    url: jdbc:mysql://localhost:3306/seller_backup?useUnicode=true&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: xxx
+    ```
 # REST Module Functionality
 | Fucntion               | Restful API   | url             | JPA Repository           |
 | ---------------------- | ------------- |-----------------| ------------------------ |
@@ -90,6 +104,20 @@ table verification_order(
 * Workflow
 ![alt text](https://github.com/nickee1942/finance-demo/blob/main/message.jpeg)
 
+# JPA
+```
+@EnableJpaRepositories(basePackageClasses = OrderRepository.class,
+            entityManagerFactoryRef = "primaryEntityManagerFactory",transactionManagerRef = "primaryTransactionManager")
+public class PrimaryConfiguration {
+}
+
+@EnableJpaRepositories(basePackageClasses = VerifyRepository.class,
+            entityManagerFactoryRef = "backUpEntityManagerFactory",transactionManagerRef = "backUpTransactionManager")     
+public class BackUpConfiguration {
+}
+```
+* BackUpConfiguration inject first and inject OrderRepository, then VerifyRepository inject.  
+* PrimaryConfiguration inject first then VerifyRepository, finally OrderRepository.
 
 
 
